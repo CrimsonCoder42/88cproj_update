@@ -1,5 +1,5 @@
 FROM adoptopenjdk/openjdk8
-LABEL author="Daniel Ciocirlan" email="daniel@rockthejvm.com"
+LABEL author="Devin Anderson" email="nostro37@gmail.com"
 LABEL version="0.2"
 
 ENV DAEMON_RUN=true
@@ -33,7 +33,4 @@ RUN wget --no-verbose https://archive.apache.org/dist/spark/spark-${SPARK_VERSIO
       && rm spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz
 
 
-
-# Fix the value of PYTHONHASHSEED
-# Note: this is needed when you use Python 3.3 or greater
 ENV PYTHONHASHSEED 1
