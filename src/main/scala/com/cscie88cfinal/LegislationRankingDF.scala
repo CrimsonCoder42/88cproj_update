@@ -42,7 +42,15 @@ object LegislationRankingDF extends App {
   sponsorRank.na.drop().show(false)
   comitteesRank.na.drop().show(false)
 
+// break apart Sponsor to get role, Political affiliation, state, and district
 
+  // val spondetailSplit = sponsorRank.select(col("Sponsor")).as("Name")
+  val spondetailSplit = sponsorRank.select(col("Sponsor"))
 
+  spondetailSplit.printSchema()
+//  val regex = "\\[(.*)\\]".r
+//  val foobarbaz = sponsorRank.collect { case regex(a) => a.trim }
+
+  spondetailSplit.show(false)
 
 }
