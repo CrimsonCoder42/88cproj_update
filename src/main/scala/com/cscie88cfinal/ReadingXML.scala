@@ -23,6 +23,6 @@ object ReadingXML extends App{
     .option("rowTag", "document")
     .format("com.databricks.spark.xml").load("src/main/resources/data/senate_votes/*.xml")
 
+
   votes.show()
-  document.show()
 }

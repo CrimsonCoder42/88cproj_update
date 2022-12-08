@@ -7,7 +7,7 @@ import org.apache.spark._
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
 
-object MoreDF extends App {
+object FilterByDF extends App {
 
   // only needs to show errors
   Logger.getLogger("org").setLevel(Level.ERROR)
@@ -18,6 +18,12 @@ object MoreDF extends App {
     .config("spark.master", "local")
     .getOrCreate()
 
+  val legislationDF = spark.read
+    .format("csv")
+    .option("header", true)
+    .load("src/main/resources/data/Bills and laws 1999 to 2022 - 1999to2022.csv")
+
+  legislationDF.filter(col("Legislation Number").contains("S. ")).show()
 
 
 
